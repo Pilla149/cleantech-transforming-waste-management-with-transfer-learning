@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">CleanTech</a>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('upload') }}">Predict</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">Prediction Result</h1>
+
+        <img src="{{ user_image }}" class="img-thumbnail mb-3" style="max-width: 300px;" alt="Uploaded Image">
+
+        <div class="alert alert-info">
+            <h4>Predicted Category: <strong>{{ prediction }}</strong></h4>
+            <p>Confidence: <strong>{{ confidence }}%</strong></p>
+        </div>
+
+        <!-- ✅ Button Row -->
+        <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="{{ url_for('upload') }}" class="btn btn-primary">Try Another Image</a>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>
